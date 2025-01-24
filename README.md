@@ -1,87 +1,51 @@
-# StreamlitExam
-PS : La clé dans le fichier TOML a été désactivée, elle sert uniquement d'exemple ici 
 
-## Groupe:
-    * Zogbelemou Frederic
-    * Benamara Amayas
-    * FOAGOUO WABO Lemaire Junior
+Instructions pour lancer le projet Streamlit depuis GitHub
+Récupérer le projet depuis GitHub
 
------------------ Etapes pour executer le projet sur son pc
-
-    1. Récupérer le projet depuis GitHub
-La première chose à faire est de télécharger ton projet. Pour cela, la personne doit aller sur ton dépôt GitHub et copier l'URL du dépôt (le lien HTTPS).
-
-Ensuite, dans un terminal (ou un outil comme Git Bash sous Windows), elle doit taper cette commande :
-
+Copiez l’URL du dépôt GitHub.
+Ouvrez un terminal et tapez la commande suivante pour cloner le projet :
 bash
 Copier
 Modifier
 git clone <URL_DU_DEPOT>
 Exemple :
-Si ton dépôt s’appelle StreamlitExam, la commande ressemblera à ceci :
-
 bash
 Copier
 Modifier
 git clone https://github.com/FFred007/StreamlitExam.git
-Cela créera un dossier avec tous les fichiers de ton projet.
-
-2. Se déplacer dans le dossier du projet
-Une fois le projet téléchargé, il faut se rendre à l’intérieur du dossier pour travailler dessus. Par exemple, si le projet s’appelle StreamlitExam, la commande est :
-
+Entrez dans le dossier cloné avec :
 bash
 Copier
 Modifier
 cd StreamlitExam
-Cela place la personne dans le dossier où sont tous les fichiers nécessaires.
+Créer un environnement virtuel Python
 
-3. Créer un environnement virtuel Python
-Pour ne pas mélanger les dépendances de ton projet avec d’autres projets Python sur son ordinateur, il est recommandé de créer un environnement virtuel.
-
-Créer l’environnement virtuel : La commande est la suivante :
-
+Créez un environnement virtuel nommé stenv :
 bash
 Copier
 Modifier
 python -m venv stenv
-Cela va créer un dossier appelé stenv qui contiendra une version isolée de Python pour ton projet.
-
-Activer l’environnement virtuel : Une fois l’environnement créé, il faut l’activer. La méthode dépend du système d’exploitation :
-
-Sur Windows :
-
+Activez l’environnement virtuel :
+Sous Windows :
 bash
 Copier
 Modifier
 stenv\Scripts\activate
-Sur Mac/Linux :
-
+Sous Mac/Linux :
 bash
 Copier
 Modifier
 source stenv/bin/activate
-Quand l’environnement est activé, le terminal montrera quelque chose comme (stenv) au début de chaque ligne, ce qui signifie qu’il utilise l’environnement virtuel.
+Installer les dépendances
 
-4. Installer les dépendances
-Dans ton projet, il doit y avoir un fichier nommé requirements.txt. Ce fichier liste tous les modules Python dont ton projet a besoin (comme streamlit ou openai).
-
-Pour installer ces modules, il suffit de taper cette commande dans le terminal :
-
+Installez les modules nécessaires en utilisant le fichier requirements.txt :
 bash
 Copier
 Modifier
 pip install -r requirements.txt
-Cela téléchargera et installera tout ce dont le projet a besoin.
+Configurer les clés API
 
-5. Configurer les clés API
-Ton projet utilise probablement une clé d'API OpenAI pour fonctionner. Ces clés doivent être configurées dans un fichier spécial appelé secrets.toml, qui se trouve dans un dossier nommé .streamlit.
-
-Voici ce que la personne doit faire :
-
-Créer le fichier secrets.toml :
-Si ce fichier n’existe pas encore, elle doit le créer manuellement dans un dossier .streamlit.
-Si le dossier n’existe pas, elle peut le créer comme ceci :
-
+Créez un dossier .streamlit dans le répertoire du projet :
 Sous Windows :
 bash
 Copier
@@ -92,23 +56,28 @@ bash
 Copier
 Modifier
 mkdir -p .streamlit
-Ensuite, elle doit créer le fichier secrets.toml dans ce dossier.
-
-Ajouter la clé API dans le fichier :
-Le contenu du fichier secrets.toml doit ressembler à ceci :
-
+Dans ce dossier, créez un fichier secrets.toml :
+Sous Windows :
+bash
+Copier
+Modifier
+echo > .streamlit\secrets.toml
+Sous Mac/Linux :
+bash
+Copier
+Modifier
+touch .streamlit/secrets.toml
+Ouvrez le fichier secrets.toml et ajoutez-y votre clé API OpenAI :
 toml
 Copier
 Modifier
 [OPENAI]
-API_KEY = "sa_cle_api"
-Il faut remplacer "sa_cle_api" par une vraie clé API OpenAI.
+API_KEY = "votre_clé_api_openai"
+Lancer l’application Streamlit
 
-6. Lancer Streamlit
-Une fois que tout est configuré, la personne peut lancer l'application Streamlit. La commande à taper est :
-
+Exécutez la commande suivante pour démarrer l’application :
 bash
 Copier
 Modifier
 streamlit run chatbotgpt.py
-chatbotgpt.py est le fichier principal de ton projet qui contient le code Streamlit. Si le fichier a un autre nom, elle devra adapter la commande en conséquence.
+Une fenêtre du navigateur s’ouvrira avec l’interface utilisateur du chatbot.
